@@ -82,6 +82,7 @@
             this.chktransports.TabIndex = 5;
             this.chktransports.Text = "Deduction transport";
             this.chktransports.UseVisualStyleBackColor = true;
+            this.chktransports.CheckedChanged += new System.EventHandler(this.chktransports_CheckedChanged);
             // 
             // chkjeune
             // 
@@ -92,6 +93,7 @@
             this.chkjeune.TabIndex = 6;
             this.chkjeune.Text = "Deduction jeune";
             this.chkjeune.UseVisualStyleBackColor = true;
+            this.chkjeune.CheckedChanged += new System.EventHandler(this.chkjeune_CheckedChanged);
             // 
             // chkfildelite
             // 
@@ -102,6 +104,7 @@
             this.chkfildelite.TabIndex = 7;
             this.chkfildelite.Text = "Rabais fidelite";
             this.chkfildelite.UseVisualStyleBackColor = true;
+            this.chkfildelite.CheckedChanged += new System.EventHandler(this.chkfildelite_CheckedChanged);
             // 
             // lblrevenu
             // 
@@ -112,6 +115,7 @@
             this.lblrevenu.Size = new System.Drawing.Size(223, 27);
             this.lblrevenu.TabIndex = 8;
             this.lblrevenu.Text = "Revenu imposable : ";
+            this.lblrevenu.Click += new System.EventHandler(this.lblrevenu_Click);
             // 
             // txtbrut
             // 
@@ -133,27 +137,35 @@
             // 
             // txtjeune
             // 
+            this.txtjeune.AcceptsTab = true;
+            this.txtjeune.Enabled = false;
             this.txtjeune.Location = new System.Drawing.Point(386, 135);
             this.txtjeune.Name = "txtjeune";
+            this.txtjeune.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.txtjeune.Size = new System.Drawing.Size(67, 20);
             this.txtjeune.TabIndex = 11;
             this.txtjeune.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtjeune.TextChanged += new System.EventHandler(this.txtjeune_TextChanged);
             // 
             // txtfidelite
             // 
+            this.txtfidelite.Enabled = false;
             this.txtfidelite.Location = new System.Drawing.Point(386, 200);
             this.txtfidelite.Name = "txtfidelite";
             this.txtfidelite.Size = new System.Drawing.Size(67, 20);
             this.txtfidelite.TabIndex = 12;
             this.txtfidelite.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtfidelite.TextChanged += new System.EventHandler(this.txtfidelite_TextChanged);
             // 
             // txttransport
             // 
-            this.txttransport.Location = new System.Drawing.Point(386, 168);
+            this.txttransport.Enabled = false;
+            this.txttransport.Location = new System.Drawing.Point(386, 167);
             this.txttransport.Name = "txttransport";
             this.txttransport.Size = new System.Drawing.Size(67, 20);
             this.txttransport.TabIndex = 13;
             this.txttransport.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txttransport.TextChanged += new System.EventHandler(this.txttransport_TextChanged);
             // 
             // Form1
             // 
@@ -173,7 +185,7 @@
             this.Controls.Add(this.lblfamille);
             this.Controls.Add(this.lblbrut);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Deduction";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
