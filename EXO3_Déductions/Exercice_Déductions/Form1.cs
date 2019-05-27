@@ -25,13 +25,55 @@ namespace Exercice_Déductions
 
         private void cmdcalcul_Click(object sender, EventArgs e)
         {
-            float brut = float.Parse(txtbrut.Text);
-            float famille = float.Parse(txtfamille.Text);
-            float jeune = float.Parse(txtjeune.Text);
-            float transport = float.Parse(txttransport.Text);
-            float fidelite = float.Parse(txtfidelite.Text);
-            float tot = brut / famille - jeune - transport;
-            lblrevenu.Text = "Revenu imposable : " + (brut / famille - jeune - transport - (fidelite/100*tot));      //calculs
+            float brut;
+            float famille;
+            float jeune=0 ;
+            float transport=0 ;
+            float fidelite=0;
+            float tot;
+            float resultat;
+            if (!float.TryParse(txtbrut.Text, out brut))
+            {
+                MessageBox.Show("Pas ok");
+                return;
+            }
+            if (!float.TryParse(txtfamille.Text, out famille))
+            {
+                MessageBox.Show("Pas ok");
+                return;
+            }
+           
+            
+            tot = brut / famille;
+            resultat = brut / famille;                        //calculs
+            if (chkjeune.Checked == true) 
+            {
+                if (!float.TryParse(txtjeune.Text, out jeune))
+                {
+                    MessageBox.Show("Pas ok");
+                    return;
+                }
+                resultat = resultat - jeune;
+            }
+            if (chktransports.Checked == true)
+            {
+                if (!float.TryParse(txttransport.Text, out transport))
+                {
+                    MessageBox.Show("Pas ok");
+                    return;
+                }
+                resultat = resultat - transport;
+            }
+            if (chkfildelite.Checked == true)
+            {
+                if (!float.TryParse(txtfidelite.Text, out fidelite))
+                {
+                    MessageBox.Show("Pas ok");
+                    return;
+                }
+                resultat = resultat - fidelite;
+            }
+            lblrevenu.Text = "Revenu imposable : " + (brut / famille - jeune - transport - (fidelite/100*tot));
         }
 
         private void txtbrut_TextChanged(object sender, EventArgs e)
@@ -56,9 +98,11 @@ namespace Exercice_Déductions
             
             if(chkjeune.Checked == true) txtjeune.Enabled = true;
             else txtjeune.Enabled = false;
+
         }
 
         private void txttransport_TextChanged(object sender, EventArgs e)
+
         {
            
             
