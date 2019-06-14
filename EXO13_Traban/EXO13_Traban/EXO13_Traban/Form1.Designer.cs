@@ -31,14 +31,13 @@
             this.lblbase = new System.Windows.Forms.Label();
             this.txtBase = new System.Windows.Forms.TextBox();
             this.grpmoteur = new System.Windows.Forms.GroupBox();
-            this.rbtprix = new System.Windows.Forms.RadioButton();
-            this.rbtserie = new System.Windows.Forms.RadioButton();
+            this.rbt6 = new System.Windows.Forms.RadioButton();
+            this.rbt4 = new System.Windows.Forms.RadioButton();
             this.chktaxes = new System.Windows.Forms.CheckBox();
             this.lbltotal = new System.Windows.Forms.Label();
             this.txttotal = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtreset = new System.Windows.Forms.TextBox();
-            this.cmdcalcul = new System.Windows.Forms.Button();
+            this.cmdreset = new System.Windows.Forms.Button();
             this.grpmoteur.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,12 +57,13 @@
             this.txtBase.Size = new System.Drawing.Size(116, 20);
             this.txtBase.TabIndex = 1;
             this.txtBase.Text = "12300";
-            this.txtBase.TextChanged += new System.EventHandler(this.txtBase_TextChanged);
+            this.txtBase.Enter += new System.EventHandler(this.txtBase_Enter);
+            this.txtBase.Validated += new System.EventHandler(this.txtBase_TextChanged);
             // 
             // grpmoteur
             // 
-            this.grpmoteur.Controls.Add(this.rbtprix);
-            this.grpmoteur.Controls.Add(this.rbtserie);
+            this.grpmoteur.Controls.Add(this.rbt6);
+            this.grpmoteur.Controls.Add(this.rbt4);
             this.grpmoteur.Location = new System.Drawing.Point(98, 117);
             this.grpmoteur.Name = "grpmoteur";
             this.grpmoteur.Size = new System.Drawing.Size(134, 82);
@@ -71,29 +71,29 @@
             this.grpmoteur.TabStop = false;
             this.grpmoteur.Text = "Moteur";
             // 
-            // rbtprix
+            // rbt6
             // 
-            this.rbtprix.AutoSize = true;
-            this.rbtprix.Location = new System.Drawing.Point(16, 42);
-            this.rbtprix.Name = "rbtprix";
-            this.rbtprix.Size = new System.Drawing.Size(87, 17);
-            this.rbtprix.TabIndex = 4;
-            this.rbtprix.Text = "1.6L : 2\'210$";
-            this.rbtprix.UseVisualStyleBackColor = true;
-            this.rbtprix.CheckedChanged += new System.EventHandler(this.rbtprix_CheckedChanged);
+            this.rbt6.AutoSize = true;
+            this.rbt6.Location = new System.Drawing.Point(16, 42);
+            this.rbt6.Name = "rbt6";
+            this.rbt6.Size = new System.Drawing.Size(87, 17);
+            this.rbt6.TabIndex = 4;
+            this.rbt6.Text = "1.6L : 2\'210$";
+            this.rbt6.UseVisualStyleBackColor = true;
+            this.rbt6.CheckedChanged += new System.EventHandler(this.rbt6_CheckedChanged);
             // 
-            // rbtserie
+            // rbt4
             // 
-            this.rbtserie.AutoSize = true;
-            this.rbtserie.Checked = true;
-            this.rbtserie.Location = new System.Drawing.Point(16, 19);
-            this.rbtserie.Name = "rbtserie";
-            this.rbtserie.Size = new System.Drawing.Size(94, 17);
-            this.rbtserie.TabIndex = 5;
-            this.rbtserie.TabStop = true;
-            this.rbtserie.Text = "1.4L : De série";
-            this.rbtserie.UseVisualStyleBackColor = true;
-            this.rbtserie.CheckedChanged += new System.EventHandler(this.rbtserie_CheckedChanged);
+            this.rbt4.AutoSize = true;
+            this.rbt4.Checked = true;
+            this.rbt4.Location = new System.Drawing.Point(16, 19);
+            this.rbt4.Name = "rbt4";
+            this.rbt4.Size = new System.Drawing.Size(94, 17);
+            this.rbt4.TabIndex = 5;
+            this.rbt4.TabStop = true;
+            this.rbt4.Text = "1.4L : De série";
+            this.rbt4.UseVisualStyleBackColor = true;
+            this.rbt4.CheckedChanged += new System.EventHandler(this.rbt4_CheckedChanged);
             // 
             // chktaxes
             // 
@@ -104,6 +104,7 @@
             this.chktaxes.TabIndex = 3;
             this.chktaxes.Text = "taxes (6.8%)";
             this.chktaxes.UseVisualStyleBackColor = true;
+            this.chktaxes.CheckedChanged += new System.EventHandler(this.chktaxes_CheckedChanged);
             // 
             // lbltotal
             // 
@@ -131,30 +132,22 @@
             this.label1.TabIndex = 6;
             this.label1.Text = "€ ";
             // 
-            // txtreset
+            // cmdreset
             // 
-            this.txtreset.Location = new System.Drawing.Point(98, 293);
-            this.txtreset.Name = "txtreset";
-            this.txtreset.Size = new System.Drawing.Size(134, 20);
-            this.txtreset.TabIndex = 7;
-            this.txtreset.Text = "Remetre le formulaire a zero";
-            // 
-            // cmdcalcul
-            // 
-            this.cmdcalcul.Location = new System.Drawing.Point(310, 398);
-            this.cmdcalcul.Name = "cmdcalcul";
-            this.cmdcalcul.Size = new System.Drawing.Size(111, 23);
-            this.cmdcalcul.TabIndex = 8;
-            this.cmdcalcul.Text = "Calculer";
-            this.cmdcalcul.UseVisualStyleBackColor = true;
+            this.cmdreset.Location = new System.Drawing.Point(98, 283);
+            this.cmdreset.Name = "cmdreset";
+            this.cmdreset.Size = new System.Drawing.Size(175, 26);
+            this.cmdreset.TabIndex = 7;
+            this.cmdreset.Text = "remettre le programme a zero ";
+            this.cmdreset.UseVisualStyleBackColor = true;
+            this.cmdreset.Click += new System.EventHandler(this.cmdreset_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(689, 450);
-            this.Controls.Add(this.cmdcalcul);
-            this.Controls.Add(this.txtreset);
+            this.Controls.Add(this.cmdreset);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txttotal);
             this.Controls.Add(this.lbltotal);
@@ -176,14 +169,13 @@
         private System.Windows.Forms.Label lblbase;
         private System.Windows.Forms.TextBox txtBase;
         private System.Windows.Forms.GroupBox grpmoteur;
-        private System.Windows.Forms.RadioButton rbtprix;
-        private System.Windows.Forms.RadioButton rbtserie;
+        private System.Windows.Forms.RadioButton rbt6;
+        private System.Windows.Forms.RadioButton rbt4;
         private System.Windows.Forms.CheckBox chktaxes;
         private System.Windows.Forms.Label lbltotal;
         private System.Windows.Forms.TextBox txttotal;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtreset;
-        private System.Windows.Forms.Button cmdcalcul;
+        private System.Windows.Forms.Button cmdreset;
     }
 }
 

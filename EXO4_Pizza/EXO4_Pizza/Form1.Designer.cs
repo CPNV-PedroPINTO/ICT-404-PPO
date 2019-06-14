@@ -204,7 +204,7 @@
             this.txttotal.Margin = new System.Windows.Forms.Padding(5);
             this.txttotal.Multiline = true;
             this.txttotal.Name = "txttotal";
-            this.txttotal.Size = new System.Drawing.Size(285, 71);
+            this.txttotal.Size = new System.Drawing.Size(285, 118);
             this.txttotal.TabIndex = 14;
             // 
             // fileSystemWatcher1
